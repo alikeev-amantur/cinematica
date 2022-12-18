@@ -7,7 +7,7 @@
 
 # Postman Collections
 
-### [Collections](https://documenter.getpostman.com/view/17623351/UVRGD3f1)
+### [Collections](https://documenter.getpostman.com/view/21365813/2s8YzZNyd7)
 
 # Deployed to Heroku
 
