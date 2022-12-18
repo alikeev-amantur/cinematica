@@ -15,9 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         email = attrs.get("email", "")
         if NewUser.objects.filter(email=email).exists():
-            raise serializers.ValidationError(
-                {"email": ("Email is already in use")}
-            )
+            raise serializers.ValidationError({"email": "Email is already in use"})
         return super().validate(attrs)
 
     def create(self, validated_data):
@@ -35,4 +33,4 @@ class FeedbackSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Feedback
-        fields = ['id', 'client', 'feedback']
+        fields = ["id", "client", "feedback"]

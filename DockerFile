@@ -1,0 +1,6 @@
+FROM python:3
+ENV PYTHONUNBUFFERED=1
+WORKDIR /cinema
+COPY Pipfile Pipfile.lock /cinema/
+RUN pip install pipenv && pipenv install --system
+COPY . /cinema/

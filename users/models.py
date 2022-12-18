@@ -20,9 +20,7 @@ class CustomAccountManager(BaseUserManager):
         if other_fields.get("is_staff") is not True:
             raise ValueError("Superuser must be assigned to is_staff=True.")
         if other_fields.get("is_superuser") is not True:
-            raise ValueError(
-                "Superuser must be assigned to is_superuser=True."
-            )
+            raise ValueError("Superuser must be assigned to is_superuser=True.")
         if other_fields.get("is_active") is not True:
             raise ValueError("Superuser must be assigned to is_active=True.")
 
@@ -46,9 +44,7 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField(_("email address"), unique=True)
     username = models.CharField(max_length=150, unique=True)
-    role = models.PositiveSmallIntegerField(
-        choices=USER_TYPE_CHOICES, default=2
-    )
+    role = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=2)
     created_at = models.DateTimeField(default=timezone.now)
     is_verified = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
@@ -64,7 +60,5 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
 
 
 class Feedback(models.Model):
-    client = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE
-    )
+    client = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     feedback = models.CharField(max_length=500)
